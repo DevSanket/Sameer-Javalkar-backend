@@ -63,7 +63,7 @@ app.post('/api/search',async (req,res) => {
             
         });
 
-        console.log(checkArr);
+        // console.log(checkArr);
 
         let value = checkArr.reduce((check1,check2) => check1 + check2,0);
 
@@ -71,11 +71,11 @@ app.post('/api/search',async (req,res) => {
             newData.push(user);
         }
         
+        return res.status(200).json(newData);
 
         // String(user["Voter Name"]).search(`/${search}/i`)
         
     });
-       return res.status(200).json(newData);
     }).catch(err => {
         console.log(err);
         return res.status(400).json({msg:"No Data found"});
